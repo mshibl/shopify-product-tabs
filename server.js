@@ -40,7 +40,7 @@ app.get('/finish_auth.html', function(req, res) {
 	console.log('*****************************')
 
 	request.post(
-		query_params.shop+'/admin/script_tags.json'
+		query_params.shop+'/admin/script_tags.json',
 		{
 		  "script_tag": {
 		    "event": "onload",
