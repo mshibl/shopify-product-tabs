@@ -39,7 +39,7 @@ app.get('/finish_auth.html', function(req, res) {
 	query_params = req.query;
 
 	request.post(
-		'https://'+query_params.shop+'.myshopify.com/admin/oauth/access_token',
+		'https://'+query_params.shop+'/admin/oauth/access_token',
 		{
 			"client_id": process.env.API_KEY,
 			"client_secret": process.env.SHARED_SECRET,
