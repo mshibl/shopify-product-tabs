@@ -1,0 +1,22 @@
+{
+  "name": "shopify-product-tabs",
+  "version": "0.0.1",
+  "description": "A simple app that adds a user interface for creating product tabs",
+  "main": "server.js",
+  "dependencies": {
+    "shopify-node-api": "^1.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "shopify",
+    "product",
+    "tabs",
+    "tabs"
+  ],
+  "author": "Mohamed Shibl",
+  "license": "ISC"
+}
