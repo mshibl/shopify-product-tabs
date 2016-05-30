@@ -42,7 +42,7 @@ app.get('/finish_auth.html', function(req, res) {
 		console.log(data)
 		console.log('*****************************')
 		console.log('error:')
-		console.log(error)
+		console.log(err)
 		console.log('*****************************')
 		// This will return successful if the request was authentic from Shopify
 		// Otherwise err will be non-null.
