@@ -39,28 +39,28 @@ app.get('/finish_auth.html', function(req, res) {
 	query_params = req.query;
 	console.log(query_params)
 
-	// request.post(
-	// 	'https://'+query_params.shop+'/admin/oauth/access_token',
-	// 	{
-	// 		body: {
-	// 			"client_id": process.env.API_KEY,
-	// 			"client_secret": process.env.SHARED_SECRET,
-	// 			"code": query_params.code
-	// 		}
-	// 	},
-	// 	function (error, response, body) {
-	// 		console.log('*****************************')
-	// 		if(response){
-	// 			// console.log(response)
-	// 			console.log(response.access_token)
-	// 		} else if (error) {
-	// 			console.log(error)
-	// 		} else {
-	// 			// console.log(body)
-	// 		}
-	// 		console.log('*****************************')
-	// 	}
-	// )
+	request.post(
+		'https://'+query_params.shop+'/admin/oauth/access_token',
+		{
+			// body: {
+				"client_id": process.env.API_KEY,
+				"client_secret": process.env.SHARED_SECRET,
+				"code": query_params.code
+			// }
+		},
+		function (error, response, body) {
+			console.log('*****************************')
+			if(response){
+				// console.log(response)
+				console.log(response.access_token)
+			} else if (error) {
+				console.log(error)
+			} else {
+				// console.log(body)
+			}
+			console.log('*****************************')
+		}
+	)
 
 	// request.post(
 	// 	'https://'+query_params.shop+'/admin/oauth/access_token',
