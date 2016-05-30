@@ -46,18 +46,26 @@ app.get('/finish_auth.html', function(req, res) {
 			"code": query_params.code
 		},
 		function (error, response, body) {
-			console.log(response)
+			console.log('*****************************')
+			if(response){
+				console.log(response)
+			} else if (error) {
+				console.log(error)
+			} else {
+				console.log(body)
+			}
+			console.log('*****************************')
 		}
 	)
 
 	Shopify.exchange_temporary_token(query_params, function(err, data){
-		console.log('*****************************')
-		console.log('data:')
-		console.log(data)
-		console.log('*****************************')
-		console.log('error:')
-		console.log(err)
-		console.log('*****************************')
+		// console.log('*****************************')
+		// console.log('data:')
+		// console.log(data)
+		// console.log('*****************************')
+		// console.log('error:')
+		// console.log(err)
+		// console.log('*****************************')
 		// This will return successful if the request was authentic from Shopify
 		// Otherwise err will be non-null.
 		// The module will automatically update your config with the new access token
