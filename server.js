@@ -35,9 +35,9 @@ app.get('/finish_auth.html', function(req, res) {
 	// var Shopify = new shopifyAPI
 	query_params = req.query;
 
-	console.log('*****************************')
-	console.log(query_params)
-	console.log('*****************************')
+	// console.log('*****************************')
+	// console.log(query_params)
+	// console.log('*****************************')
 
 	request.post(
 		query_params.shop+'/admin/script_tags.json',
@@ -48,6 +48,7 @@ app.get('/finish_auth.html', function(req, res) {
 		  }
 		},
 	    function (error, response, body) {
+	    	if(error){console.log(error)}
     	    if (!error && response.statusCode == 200) {
         	    console.log(body)
         	}
