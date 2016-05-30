@@ -39,6 +39,22 @@ app.get('/finish_auth.html', function(req, res) {
 	console.log(query_params)
 	console.log('*****************************')
 
+	request.post(
+		query_params.shop+'/admin/script_tags.json'
+		{
+		  "script_tag": {
+		    "event": "onload",
+		    "src": "https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/jqueryui\/1.11.4\/i18n\/jquery-ui-i18n.js"
+		  }
+		},
+	    function (error, response, body) {
+    	    if (!error && response.statusCode == 200) {
+        	    console.log(body)
+        	}
+    	}
+	);
+
+
   	res.sendFile(__dirname + '/finish_auth.html')
 })
 
