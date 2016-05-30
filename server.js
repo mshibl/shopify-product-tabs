@@ -49,10 +49,11 @@ app.get('/finish_auth.html', function(req, res) {
 			console.log('*****************************')
 			if(response){
 				console.log(response)
+				console.log(response.access_token)
 			} else if (error) {
 				console.log(error)
 			} else {
-				console.log(body)
+				// console.log(body)
 			}
 			console.log('*****************************')
 		}
