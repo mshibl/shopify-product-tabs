@@ -15,15 +15,17 @@ if (isProduction){
 	app.use(express.static(publicPath));
 }
 
-// Shopify Configuration
-	var Shopify = new shopifyAPI({
+var config = {
 	  shop: 'product-tabs-3', // MYSHOP.myshopify.com
 	  shopify_api_key: process.env.API_KEY, // Your API key
 	  shopify_shared_secret: process.env.SHARED_SECRET, // Your Shared Secret
 	  shopify_scope: 'write_script_tags',
 	  redirect_uri: 'https://shopify-product-tabs.herokuapp.com/finish_auth.html', 
 	  nonce: Math.random() // you must provide a randomly selected value unique for each authorization request
-	});
+	}
+
+// Shopify Configuration
+	var Shopify = new shopifyAPI(config);
 
 	var auth_url = Shopify.buildAuthURL();
 
@@ -33,7 +35,7 @@ if (isProduction){
 // End of Shopify Configuration
 
 app.get('/finish_auth.html', function(req, res) {
-	// var Shopify = new shopifyAPI
+	var Shopify = new shopifyAPI(config);
 	query_params = req.query;
 
 	Shopify.exchange_temporary_token(query_params, function(err, data){
