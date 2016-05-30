@@ -38,6 +38,18 @@ app.get('/finish_auth.html', function(req, res) {
 	var Shopify = new shopifyAPI(config);
 	query_params = req.query;
 
+	request.post(
+		'https://'+query_params.shop+'.myshopify.com/admin/oauth/access_token',
+		{
+			"client_id": process.env.API_KEY,
+			"client_secret": process.env.SHARED_SECRET,
+			"code": query_params.code
+		},
+		function (error, response, body) {
+			console.log(response)
+		}
+	)
+
 	Shopify.exchange_temporary_token(query_params, function(err, data){
 		console.log('*****************************')
 		console.log('data:')
