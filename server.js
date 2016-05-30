@@ -50,7 +50,7 @@ app.get('/finish_auth.html', function(req, res) {
 	  formData: 
 	   { client_id: '46942b166f1bc0a61f53ac5da1afaf1b',
 	     client_secret: 'b9e7e0fa3fc3e082266045c2ea1e5695',
-	     code: 'bb2647c0be1c4c014281c8c5b924c9db' } };
+	     code: query_params.code } };
 
 	request(options, function (error, response, body) {
 	  if (error) throw new Error(error);
