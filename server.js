@@ -48,7 +48,7 @@ app.get('/finish_auth.html', function(req, res) {
 		function (error, response, body) {
 			console.log('*****************************')
 			if(response){
-				console.log(response)
+				// console.log(response)
 				console.log(response.access_token)
 			} else if (error) {
 				console.log(error)
@@ -58,6 +58,29 @@ app.get('/finish_auth.html', function(req, res) {
 			console.log('*****************************')
 		}
 	)
+
+	request.post(
+		'https://'+query_params.shop+'/admin/oauth/access_token',
+		{
+			client_id: process.env.API_KEY,
+			client_secret: process.env.SHARED_SECRET,
+			code: query_params.code
+		},
+		function (error, response, body) {
+			console.log('*****************************')
+			if(response){
+				// console.log(response)
+				console.log(response.access_token)
+			} else if (error) {
+				console.log(error)
+			} else {
+				// console.log(body)
+			}
+			console.log('*****************************')
+		}
+	)
+
+
 
 	Shopify.exchange_temporary_token(query_params, function(err, data){
 		// console.log('*****************************')
