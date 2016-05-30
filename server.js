@@ -27,8 +27,6 @@ if (isProduction){
 
 	var auth_url = Shopify.buildAuthURL();
 
-	console.log(auth_url)
-
 	app.get('/',function(req,res){
 		res.redirect(auth_url);
 	})
@@ -40,7 +38,11 @@ app.get('/finish_auth.html', function(req, res) {
 
 	Shopify.exchange_temporary_token(query_params, function(err, data){
 		console.log('*****************************')
+		console.log('data:')
 		console.log(data)
+		console.log('*****************************')
+		console.log('error:')
+		console.log(error)
 		console.log('*****************************')
 		// This will return successful if the request was authentic from Shopify
 		// Otherwise err will be non-null.
