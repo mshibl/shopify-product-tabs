@@ -41,9 +41,11 @@ app.get('/finish_auth.html', function(req, res) {
 	request.post(
 		'https://'+query_params.shop+'/admin/oauth/access_token',
 		{
-			"client_id": process.env.API_KEY,
-			"client_secret": process.env.SHARED_SECRET,
-			"code": query_params.code
+			body: {
+				"client_id": process.env.API_KEY,
+				"client_secret": process.env.SHARED_SECRET,
+				"code": query_params.code
+			}
 		},
 		function (error, response, body) {
 			console.log('*****************************')
@@ -62,9 +64,11 @@ app.get('/finish_auth.html', function(req, res) {
 	request.post(
 		'https://'+query_params.shop+'/admin/oauth/access_token',
 		{
-			client_id: process.env.API_KEY,
-			client_secret: process.env.SHARED_SECRET,
-			code: query_params.code
+			body: {
+				client_id: process.env.API_KEY,
+				client_secret: process.env.SHARED_SECRET,
+				code: query_params.code
+			}
 		},
 		function (error, response, body) {
 			console.log('*****************************')
