@@ -35,9 +35,16 @@ app.get('/finish_auth.html', function(req, res) {
 	// var Shopify = new shopifyAPI
 	query_params = req.query;
 
-	// console.log('*****************************')
-	// console.log(query_params)
-	// console.log('*****************************')
+	Shopify.exchange_temporary_token(query_params, function(err, data){
+		console.log('*****************************')
+		console.log(data)
+		console.log('*****************************')
+		// This will return successful if the request was authentic from Shopify
+		// Otherwise err will be non-null.
+		// The module will automatically update your config with the new access token
+		// It is also available here as data['access_token']
+	});
+	
 
 	request.post(
 		'https://'+query_params.shop+'/admin/script_tags.json',
@@ -48,11 +55,9 @@ app.get('/finish_auth.html', function(req, res) {
 		  }
 		},
 	    function (error, response, body) {
-	    	if(error){console.log(error)}
-	    		console.log(response)
-    	    if (!error && response.statusCode == 200) {
-        	    console.log(body)
-        	}
+	    	if (error) {console.log(error)}
+	    	// if (response) {console.log(response)}
+    	    if (!error && response.statusCode == 200) {console.log(body)}
     	}
 	);
 
