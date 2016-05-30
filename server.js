@@ -3,6 +3,7 @@ var path = require('path');
 var app = express();
 var shopifyAPI = require('shopify-node-api');
 var request = require('request');
+var options
 
 var publicPath = path.resolve(__dirname, 'public');
 var isProduction = process.env.NODE_ENV === 'production';
@@ -25,6 +26,8 @@ if (isProduction){
 	});
 
 	var auth_url = Shopify.buildAuthURL();
+
+	console.log(auth_url)
 
 	app.get('/',function(req,res){
 		res.redirect(auth_url);
