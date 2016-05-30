@@ -13,25 +13,32 @@ if (isProduction){
 	app.use(express.static(publicPath));
 }
 
-var Shopify = new shopifyAPI({
-  shop: 'product-tabs-3', // MYSHOP.myshopify.com
-  shopify_api_key: process.env.API_KEY, // Your API key
-  shopify_shared_secret: process.env.SHARED_SECRET, // Your Shared Secret
-  shopify_scope: 'write_script_tags',
-  redirect_uri: 'https://shopify-product-tabs.herokuapp.com/index.html', 
-  nonce: Math.random() // you must provide a randomly selected value unique for each authorization request
-});
+// Shopify Configuration
+	var Shopify = new shopifyAPI({
+	  shop: 'product-tabs-3', // MYSHOP.myshopify.com
+	  shopify_api_key: process.env.API_KEY, // Your API key
+	  shopify_shared_secret: process.env.SHARED_SECRET, // Your Shared Secret
+	  shopify_scope: 'write_script_tags',
+	  redirect_uri: 'https://shopify-product-tabs.herokuapp.com/index.html', 
+	  nonce: Math.random() // you must provide a randomly selected value unique for each authorization request
+	});
 
-var auth_url = Shopify.buildAuthURL();
+	var auth_url = Shopify.buildAuthURL();
 
-console.log(auth_url)
+	app.get('/',function(req,res){
+		res.redirect(auth_url);
+	})
+// End of Shopify Configuration
 
-app.get('/',function(req,res){
-	res.redirect(auth_url);
-})
+app.get('/finish_auth.html', function(req, res) {
+	// var Shopify = new shopifyAPI
+	query_params = req.query;
 
-app.get('/index.html', function(req, res) {
-  	res.sendFile(__dirname + '/index.html')
+	console.log('*****************************')
+	console.log(query_params)
+	console.log('*****************************')
+
+  	res.sendFile(__dirname + '/finish_auth.html')
 })
 
 app.listen(port, function(error) {
