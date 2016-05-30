@@ -18,7 +18,7 @@ var Shopify = new shopifyAPI({
   shopify_api_key: process.env.API_KEY, // Your API key
   shopify_shared_secret: process.env.SHARED_SECRET, // Your Shared Secret
   shopify_scope: 'write_script_tags',
-  redirect_uri: 'http://localhost:'+port+'/index.html',
+  redirect_uri: 'https://shopify-product-tabs.herokuapp.com/index.html', 
   nonce: Math.random() // you must provide a randomly selected value unique for each authorization request
 });
 
