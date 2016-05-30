@@ -49,6 +49,7 @@ app.get('/finish_auth.html', function(req, res) {
 		},
 	    function (error, response, body) {
 	    	if(error){console.log(error)}
+	    		console.log(response)
     	    if (!error && response.statusCode == 200) {
         	    console.log(body)
         	}
