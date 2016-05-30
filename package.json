@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.13.4",
+    "request": "^2.72.0",
     "shopify-node-api": "^1.7.2"
   },
   "devDependencies": {},
@@ -18,6 +19,7 @@
     "tabs",
     "tabs"
   ],
+  "repository": "https://github.com/mshibl/shopify-product-tabs",
   "author": "Mohamed Shibl",
   "license": "ISC"
 }

@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var app = express();
 var shopifyAPI = require('shopify-node-api');
+var request = require('request');
 
 var publicPath = path.resolve(__dirname, 'public');
 var isProduction = process.env.NODE_ENV === 'production';
