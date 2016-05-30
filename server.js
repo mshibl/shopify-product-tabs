@@ -39,83 +39,83 @@ app.get('/finish_auth.html', function(req, res) {
 	query_params = req.query;
 	console.log(query_params)
 
-	request.post(
-		'https://'+query_params.shop+'/admin/oauth/access_token',
-		{
-			body: {
-				"client_id": process.env.API_KEY,
-				"client_secret": process.env.SHARED_SECRET,
-				"code": query_params.code
-			}
-		},
-		function (error, response, body) {
-			console.log('*****************************')
-			if(response){
-				// console.log(response)
-				console.log(response.access_token)
-			} else if (error) {
-				console.log(error)
-			} else {
-				// console.log(body)
-			}
-			console.log('*****************************')
-		}
-	)
+	// request.post(
+	// 	'https://'+query_params.shop+'/admin/oauth/access_token',
+	// 	{
+	// 		body: {
+	// 			"client_id": process.env.API_KEY,
+	// 			"client_secret": process.env.SHARED_SECRET,
+	// 			"code": query_params.code
+	// 		}
+	// 	},
+	// 	function (error, response, body) {
+	// 		console.log('*****************************')
+	// 		if(response){
+	// 			// console.log(response)
+	// 			console.log(response.access_token)
+	// 		} else if (error) {
+	// 			console.log(error)
+	// 		} else {
+	// 			// console.log(body)
+	// 		}
+	// 		console.log('*****************************')
+	// 	}
+	// )
 
-	request.post(
-		'https://'+query_params.shop+'/admin/oauth/access_token',
-		{
-			body: {
-				client_id: process.env.API_KEY,
-				client_secret: process.env.SHARED_SECRET,
-				code: query_params.code
-			}
-		},
-		function (error, response, body) {
-			console.log('*****************************')
-			if(response){
-				// console.log(response)
-				console.log(response.access_token)
-			} else if (error) {
-				console.log(error)
-			} else {
-				// console.log(body)
-			}
-			console.log('*****************************')
-		}
-	)
+	// request.post(
+	// 	'https://'+query_params.shop+'/admin/oauth/access_token',
+	// 	{
+	// 		body: {
+	// 			client_id: process.env.API_KEY,
+	// 			client_secret: process.env.SHARED_SECRET,
+	// 			code: query_params.code
+	// 		}
+	// 	},
+	// 	function (error, response, body) {
+	// 		console.log('*****************************')
+	// 		if(response){
+	// 			// console.log(response)
+	// 			console.log(response.access_token)
+	// 		} else if (error) {
+	// 			console.log(error)
+	// 		} else {
+	// 			// console.log(body)
+	// 		}
+	// 		console.log('*****************************')
+	// 	}
+	// )
 
 
 
-	Shopify.exchange_temporary_token(query_params, function(err, data){
-		// console.log('*****************************')
-		// console.log('data:')
-		// console.log(data)
-		// console.log('*****************************')
-		// console.log('error:')
-		// console.log(err)
-		// console.log('*****************************')
-		// This will return successful if the request was authentic from Shopify
-		// Otherwise err will be non-null.
-		// The module will automatically update your config with the new access token
-		// It is also available here as data['access_token']
-	});
+	// Shopify.exchange_temporary_token(query_params, function(err, data){
+	// 	// console.log('*****************************')
+	// 	// console.log('data:')
+	// 	// console.log(data)
+	// 	// console.log('*****************************')
+	// 	// console.log('error:')
+	// 	// console.log(err)
+	// 	// console.log('*****************************')
+	// 	// This will return successful if the request was authentic from Shopify
+	// 	// Otherwise err will be non-null.
+	// 	// The module will automatically update your config with the new access token
+	// 	// It is also available here as data['access_token']
+	// });
 	
 
-	request.post(
-		'https://'+query_params.shop+'/admin/script_tags.json',
-		{
-		  "script_tag": {
-		    "event": "onload",
-		    "src": "https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/jqueryui\/1.11.4\/i18n\/jquery-ui-i18n.js"
-		  }
-		},
-	    function (error, response, body) {
-	    	if (error) {console.log(error)}
-	    	// if (response) {console.log(response)}
-    	    // if (!error && response.statusCode == 200) {console.log(body)}
-    	}
-	);
+	// request.post(
+	// 	'https://'+query_params.shop+'/admin/script_tags.json',
+	// 	{
+	// 	  "script_tag": {
+	// 	    "event": "onload",
+	// 	    "src": "https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/jqueryui\/1.11.4\/i18n\/jquery-ui-i18n.js"
+	// 	  }
+	// 	},
+	//     function (error, response, body) {
+	//     	if (error) {console.log(error)}
+	//     	// if (response) {console.log(response)}
+ //    	    // if (!error && response.statusCode == 200) {console.log(body)}
+ //    	}
+	// );
 
 
   	res.sendFile(__dirname + '/finish_auth.html')
