@@ -37,6 +37,7 @@ var config = {
 app.get('/finish_auth.html', function(req, res) {
 	var Shopify = new shopifyAPI(config);
 	query_params = req.query;
+	console.log(query_params)
 
 	request.post(
 		'https://'+query_params.shop+'/admin/oauth/access_token',
