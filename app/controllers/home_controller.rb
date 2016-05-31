@@ -3,5 +3,8 @@ class HomeController < ShopifyApp::AuthenticatedController
     @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
     @scripts = ShopifyAPI::ScriptTag.find(:all, :params => {:limit => 10})
     @themes = ShopifyAPI::Theme.find(:all)
+    p '**********************'
+    @themes = ShopifyAPI::Theme.find(:all)
+    p '**********************'
   end
 end
