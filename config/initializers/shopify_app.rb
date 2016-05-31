@@ -1,6 +1,6 @@
 ShopifyApp.configure do |config|
-  config.api_key = "<api_key>"
-  config.secret = "<secret>"
-  config.scope = "read_orders, read_products"
+  config.api_key = ENV["API_KEY"]
+  config.secret = ENV["SECRET"]
+  config.scope = "read_script_tags, write_script_tags"
   config.embedded_app = true
 end
