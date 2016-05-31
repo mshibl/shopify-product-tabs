@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Shopify App Gem // https://github.com/Shopify/shopify_app
+gem 'shopify_app'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
