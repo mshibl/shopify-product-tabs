@@ -45,5 +45,6 @@ group :development do
   gem 'spring'
 end
 
-gem 'shopify_app'
+gem "shopify_app"
+gem "shopify_cli"
 gem "figaro"

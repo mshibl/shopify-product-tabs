@@ -21,3 +21,4 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+  [1m[36mShop Load (3.9ms)[0m  [1mSELECT "shops".* FROM "shops"[0m
